@@ -1,9 +1,5 @@
-import random
-import settings
-
-import grid_generator
-import ship_generator
-
+import random, settings
+import grid_generator, ship_generator
 from player_manager import fire
 
 grid = [[]]
@@ -14,7 +10,7 @@ turns_left = settings.turns_count
 
 game_over = False
 
-def start():
+def main():
     global ships_left
 
     settings.validate_settings()
@@ -62,4 +58,4 @@ def try_end_game():
             print("Sorry, you lost!")
             game_over = True
 
-start()
+main()

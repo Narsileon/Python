@@ -1,5 +1,4 @@
-import random
-import settings
+import random, settings
 
 def create_ships(grid, ships):   
     ships = []
