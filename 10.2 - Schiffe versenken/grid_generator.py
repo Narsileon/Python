@@ -29,3 +29,4 @@ def print_grid(grid, debug_mode = False):
             else:
                 print(grid[y][x], end=" ")
         print("")
+    print("")

@@ -36,26 +36,28 @@ def initialize_game():
     ships = ship_generator.create_ships(grid, ships)
     
 def display_header():
-    print("Battleship Game:")
-    print("You have {} shots to destroy {} ships".format(settings.turns_count, settings.ships_count))
+    print("Schiffe versenken:")
+    print("Sie haben {} Schüsse, um {} Schiffe zu zerstören.".format(settings.turns_count, settings.ships_count))
+    print("")
 
 def display_stats():
-    print("Number of ships left: " + str(ships_left))
-    print("Number of turns left: " + str(turns_left))
+    print("Anzahl der verbleibenden Schiffe: " + str(ships_left))
+    print("NAnzahl der verbleibenden Runden: " + str(turns_left))
+    print("")
 
 def try_end_game():
     global turns_left
     global game_over
 
     if ships_left <= 0:
-        print("Congrats, you won!")
+        print("Herzlichen Glückwunsch, Sie haben gewonnen!")
         game_over = True
         
     else:
         turns_left -= 1
         
         if turns_left <= 0:
-            print("Sorry, you lost!")
+            print("Leider haben Sie verloren.")
             game_over = True
 
 main()

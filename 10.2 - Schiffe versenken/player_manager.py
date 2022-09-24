@@ -7,7 +7,7 @@ def fire(grid, ships):
 
     # Missed.
     if grid[row][col] == settings.empty:
-        print("You missed!")
+        print("Leider haben Sie verpasst.")
         grid[row][col] = settings.missed
     
     # Hit.
@@ -16,10 +16,10 @@ def fire(grid, ships):
         grid[row][col] = settings.hit
         
         if validate_ship_destruction(grid, ships, row, col):
-            print("A ship was sunk!")
+            print("Ein Schiff wurde versenkt!")
             return 1
         else:
-            print("A ship was shot!")
+            print("Ein Schiff wurde erschossen!")
             
     print("----------------------------")
     print("")
@@ -33,14 +33,14 @@ def validate_fire(grid):
     
     maxLetter = settings.alphabet[settings.size_y - 1]
     maxNumber = settings.size_x - 1
-    errorMessage = "Error: Please enter row (A-{}) and column (0-{}), for example B2".format(maxLetter, maxNumber) 
+    errorMessage = "Fehler: Bitte geben Sie Zeile (A-{}) und Spalte (0-{}) ein (z. B. A1): ".format(maxLetter, maxNumber) 
     
     while is_target_valid is False:
-        target = input("Enter row (A-J) and column (0-9) such as A3: ")
+        target = input("Bitte geben Sie die Koordinate ein (z. B. A1): ".format(maxLetter, maxNumber))
         target = target.upper()
         
         if len(target) < 2 or len(target) > 3:
-            print("Error: Please enter only one row and one column (for example B2).")
+            print("Fehler: Bitte geben Sie nur eine Zeile und eine Spalte ein (z. B. A1).")
             continue
         
         row = target[0]
@@ -51,14 +51,14 @@ def validate_fire(grid):
             continue
         row = settings.alphabet.find(row)
         if not (-1 < row < settings.size_y):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Fehler: Bitte geben Sie die Koordinate mit einer Zeile zwischen A und {} ein: ".format(maxLetter))
             continue
         col = int(col)
         if not (-1 < col < settings.size_x):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Fehler: Bitte geben Sie die Koordinate mit einer Spalte zwischen 0 und {} ein: ".format(maxNumber))
             continue
         if grid[row][col] == "#" or grid[row][col] == "X":
-            print("You have already shot a bullet here, pick somewhere else")
+            print("Sie haben bereits auf diese Koordinate geschossen, suchen Sie sich eine andere aus.")
             continue
         if grid[row][col] == "." or grid[row][col] == "O":
             is_target_valid = True
