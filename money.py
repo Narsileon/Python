@@ -1,3 +1,5 @@
+import math
+
 from decimal import Decimal
 
 CURRENCY = "€"

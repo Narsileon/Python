@@ -1,11 +1,13 @@
 from datetime import date
 
-def clamp(name, value, minValue, maxValue):
+def clamp(value, minValue, maxValue, name = None):
     if value < minValue:
-        print("'{}' war kleiner als {} und wurde geklemmt.".format(name, minValue))
+        if (name):
+            print("'{}' war kleiner als {} und wurde geklemmt.".format(name, minValue))
         return minValue
     elif value > maxValue:
-        print("'{}' war größer als {} und wurde geklemmt.".format(name, maxValue))
+        if (name):
+            print("'{}' war größer als {} und wurde geklemmt.".format(name, maxValue))
         return maxValue
     else:
         return value
