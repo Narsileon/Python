@@ -3,7 +3,7 @@ import settings
 def fire(grid, ships):
     row, col = validate_fire(grid)
     print("")
-    print("----------------------------")
+    print("------------------------------")
 
     # Missed.
     if grid[row][col] == settings.empty:
@@ -12,7 +12,7 @@ def fire(grid, ships):
     
     # Hit.
     elif grid[row][col] == settings.ship:
-        print("You hit!", end=" ")
+        print("Erfolgreicher Schuss!", end=" ")
         grid[row][col] = settings.hit
         
         if validate_ship_destruction(grid, ships, row, col):
@@ -21,7 +21,7 @@ def fire(grid, ships):
         else:
             print("Ein Schiff wurde erschossen!")
             
-    print("----------------------------")
+    print("------------------------------")
     print("")
     return 0
 
@@ -33,14 +33,14 @@ def validate_fire(grid):
     
     maxLetter = settings.alphabet[settings.size_y - 1]
     maxNumber = settings.size_x - 1
-    errorMessage = "Fehler: Bitte geben Sie Zeile (A-{}) und Spalte (0-{}) ein (z. B. A1): ".format(maxLetter, maxNumber) 
+    errorMessage = "Fehler: Bitte geben Sie Zeile (A-{}) und Spalte (0-{}) ein (z. B. E4): ".format(maxLetter, maxNumber) 
     
     while is_target_valid is False:
-        target = input("Bitte geben Sie die Koordinate ein (z. B. A1): ".format(maxLetter, maxNumber))
+        target = input("Bitte geben Sie die Koordinate ein (z. B. E4): ".format(maxLetter, maxNumber))
         target = target.upper()
         
         if len(target) < 2 or len(target) > 3:
-            print("Fehler: Bitte geben Sie nur eine Zeile und eine Spalte ein (z. B. A1).")
+            print("Fehler: Bitte geben Sie nur eine Zeile und eine Spalte ein (z. B. E4): ")
             continue
         
         row = target[0]
@@ -58,7 +58,7 @@ def validate_fire(grid):
             print("Fehler: Bitte geben Sie die Koordinate mit einer Spalte zwischen 0 und {} ein: ".format(maxNumber))
             continue
         if grid[row][col] == "#" or grid[row][col] == "X":
-            print("Sie haben bereits auf diese Koordinate geschossen, suchen Sie sich eine andere aus.")
+            print("Sie haben bereits auf diese Koordinate geschossen, suchen Sie sich eine andere aus: ")
             continue
         if grid[row][col] == "." or grid[row][col] == "O":
             is_target_valid = True
