@@ -66,7 +66,9 @@ def brutto_to_netto(brutto, format_option = "D"):
     return format_currency(netto, format_option)
         
 def validate_currency(currency):
-    if (isinstance(currency, Decimal) or isinstance(currency, float) or isinstance(currency, int)):
+    if (isinstance(currency, int) or
+        isinstance(currency, float) or
+        isinstance(currency, Decimal)):
         return Decimal("%.2f" % currency)
     elif currency[-1] == CURRENCY:
         return Decimal(currency[:-1])
