@@ -37,6 +37,7 @@ def subtract(a, b, format_option = "D"):
 
 def multiply(a, x, format_option = "D"):
     a = validate_currency(a)
+    x = validate_currency(x)
     
     value = a * x
     
@@ -44,6 +45,7 @@ def multiply(a, x, format_option = "D"):
 
 def divide(a, x, format_option = "D"):
     a = validate_currency(a)
+    x = validate_currency(x)
     
     value = a / x
     
@@ -64,7 +66,7 @@ def brutto_to_netto(brutto, format_option = "D"):
     return format_currency(netto, format_option)
         
 def validate_currency(currency):
-    if (isinstance(currency, Decimal)):
+    if (isinstance(currency, Decimal) or isinstance(currency, float) or isinstance(currency, int)):
         return Decimal("%.2f" % currency)
     elif currency[-1] == CURRENCY:
         return Decimal(currency[:-1])
