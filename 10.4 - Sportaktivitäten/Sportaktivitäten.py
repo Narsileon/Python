@@ -9,8 +9,11 @@ activity = {}
 
 def main():
     load_activities()   
-    get_activity()      
-    display_data() 
+    get_activity()
+    
+    print("")
+    display_data()
+    
     set_activity()
     save_activities()
 
@@ -29,13 +32,11 @@ def get_activity():
     activity["Data"] = activities[activity["Name"]]
 
 def display_data():
-    print("")
     print("Aktivität:", activity["Name"], format_description())
     print("- Kursort:", activity["Data"]["Kursort"])
     print("- Kurstermin:", activity["Data"]["Kurstermin"])
     print("- Kursdauer:", activity["Data"]["Kursdauer"])
     print("- Teilnehmer: {}/{}".format(activity["Data"]["Teilnehmerzahl"], activity["Data"]["Teilnehmerzahl_Max"]))
-    print("")
 
 def set_activity():
     beteiligung = userinput.get_bool("Möchten Sie an diesen Kurs teilnehmen")

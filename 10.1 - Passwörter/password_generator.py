@@ -10,6 +10,7 @@ password = []
 
 def main():
     generate_password()
+    print("")
     display_password()
 
 def generate_password():
@@ -58,7 +59,6 @@ def append_to_password(character_list, count):
         password.append(random.choice(character_list))
         
 def display_password():
-    print("")
     print("Passwort:", "".join(password))
 
 main()

@@ -12,6 +12,7 @@ def main():
     get_articles_data()
     set_delivery_data()
     set_invoice_data()
+    print("")
     display_data()
 
 def get_articles_data():
@@ -63,14 +64,12 @@ def set_invoice_data():
     invoice["Gesamtbruttopreis"] = str(gesamtbruttopreis) + money.CURRENCY 
 
 def display_data():
+    print("Zusammenfassung der Bestellung:")   
     print("")
-    
-    print("Zusammenfassung der Bestellung:")
-    
-    print("")
-
     display_articles_data()
+    print("")
     display_delivery_data()
+    print("")
     display_invoice_data()         
 
 def display_articles_data():
@@ -78,24 +77,18 @@ def display_articles_data():
         print ("Artikel n°" + str(i) + ":")
         
         for x, y in articles[i].items():     
-            print ("-", x + ":", y) 
-           
-        print("")    
+            print("- {}: {}".format(x, y))  
 
 def display_delivery_data():
     print("Zusammenfassung der Lieferung:")
     
     for x, y in delivery.items():
-        print("-", x + ":", y)
-        
-    print("")
+        print("- {}: {}".format(x, y))
 
 def display_invoice_data():
     print("Zusammenfassung der Rechnung:")
     
     for x, y in invoice.items():
-        print("-", x + ":", y)
-        
-    print("")
+        print("- {}: {}".format(x, y))
 
 main()

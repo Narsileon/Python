@@ -9,6 +9,7 @@ change = {}
 
 def main():
     get_data()
+    print("")
     display_data()
     
 def get_data():
@@ -22,13 +23,11 @@ def get_data():
 
     change = moneychange.get(amount_paid - amount_to_pay)
     
-def display_data():
-    print("")
-    
+def display_data():   
     for x, y in data.items():
-        print(x + ":", y)
+        print("{}: {}".format(x, y))
     
     for x, y in change.items():
-        print("-", x + ":", y)
+        print("- {}: {}".format(x, y))
 
 main()

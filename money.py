@@ -10,11 +10,14 @@ def get(question, minValue = -9223372036854775808, maxValue = 922337203685477580
         try:
             value = float(input(question))
             value = Decimal("%.2f" % value)
+            
         except ValueError:
             print("Bitte geben Sie eine gültige Antwort: ")
             continue
+        
         if (minValue <= value <= maxValue):
             return format_currency(value, format_option)
+        
         else:
             print("Bitte geben Sie eine Antwort zwischen {} und {}: ".format(minValue, maxValue))
             continue
@@ -66,10 +69,13 @@ def brutto_to_netto(brutto, format_option = "D"):
     return format_currency(netto, format_option)
         
 def validate_currency(currency):
-    if (isinstance(currency, int) or
+    if (
+        isinstance(currency, int) or
         isinstance(currency, float) or
-        isinstance(currency, Decimal)):
+        isinstance(currency, Decimal)
+    ):
         return Decimal("%.2f" % currency)
+    
     elif currency[-1] == CURRENCY:
         return Decimal(currency[:-1])
 
@@ -78,6 +84,7 @@ def format_currency(currency, f):
     
     if (f == "C"):
         return str(currency) + CURRENCY
+    
     elif (f == "D"):
         return currency
     

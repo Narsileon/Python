@@ -9,6 +9,7 @@ change = {}
 
 def main():
     get_data()
+    print("")
     display_data()
     
 def get_data():
@@ -20,12 +21,10 @@ def get_data():
     change = moneychange.get(value)
     
 def display_data():
-    print("")
-    
     for x, y in data.items():
-        print(x + ":", y)
+        print("{}: {}".format(x, y))
     
     for x, y in change.items():
-        print("-", x + ":", y)
+        print("- {}: {}".format(x, y))
 
 main()

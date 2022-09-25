@@ -19,26 +19,24 @@ CATEGORIES = {
 data = {}
 
 def main():
+    print("Mietpreise:")
     get_data()
     set_data()
+    print("")
     display_data()
 
 def get_data():
-    print("Mietpreise:")
+    
     data["Etage"] = FLOORS[userinput.get_choice("- Bitte wählen Sie eine Etage: ", list(FLOORS))]
     data["Kategorie"] = CATEGORIES[userinput.get_choice("- Bitte wählen Sie eine Kategorie: ", list(CATEGORIES))]
     
 def set_data():
     data["Quadratmetermiete"] = money.add(data["Etage"], data["Kategorie"])
     
-def display_data():   
-    print("")
-    
+def display_data():
     print("Zusammenfassung:")
     
     for x, y in data.items():
-        print("-", x + ":", y)
-        
-    print("")  
+        print("- {}: {}".format(x, y))
     
 main()

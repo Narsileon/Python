@@ -1,5 +1,4 @@
 from datetime import datetime
-from decimal import Decimal
 
 ErrorMessage = "Bitte geben Sie eine gültige Antwort. "
 
@@ -13,7 +12,7 @@ def get_string(question, minLen = 3, maxLen = 255):
         if (minLen <= len(value) <= maxLen):
             return value
         else:
-            print(ErrorMessage + "Die Antwort muss zwischen {} und {} Zeichen lang sein".format(minLen, maxLen))
+            print(ErrorMessage + "Die Antwort muss zwischen {} und {} Zeichen lang sein. ".format(minLen, maxLen))
             continue
         
 def get_int(question, minValue = -9223372036854775808, maxValue = 9223372036854775807):
@@ -26,7 +25,7 @@ def get_int(question, minValue = -9223372036854775808, maxValue = 92233720368547
         if (minValue <= value <= maxValue):
             return value
         else:
-            print(ErrorMessage + "Die Antwort muss zwischen {} und {} liegen.".format(minValue, maxValue))
+            print(ErrorMessage + "Die Antwort muss zwischen {} und {} liegen. ".format(minValue, maxValue))
             continue  
 
 def get_bool(question):
@@ -37,7 +36,7 @@ def get_bool(question):
             print(ErrorMessage)
         if (value == "Ja" or value == "ja"):
             return True
-        if (value == "Nein" or value == "nein"):
+        elif (value == "Nein" or value == "nein"):
             return False
         else:
             print(ErrorMessage)

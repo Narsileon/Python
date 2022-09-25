@@ -11,6 +11,7 @@ data = {}
 def main():
     get_data()
     set_data()
+    print("")
     display_data()
 
 def get_data():
@@ -27,16 +28,12 @@ def set_data():
     final_cost = mathf.clamp(base_cost - customer_discount, 0.00, 100.00)
     data["Endgültige Versandkosten"] = money.format_currency(final_cost, "C")
 
-def display_data():
-    print("")
-    
+def display_data(): 
     print("Lieferpreis:")
     
     for x, y in data.items():
-        print("-", x + ":", y)
+        print("- {}: {}".format(x, y))
         
-    print("")    
-
 def get_base_cost(distance):   
     if (distance <= 30):
         return 10.00
