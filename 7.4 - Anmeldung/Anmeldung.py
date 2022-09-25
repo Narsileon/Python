@@ -13,8 +13,7 @@ def get_password():
                 .format(tries, "Versuche" if tries > 1 else "Versuch")
             )
             
-            password = str(input(question))
-            
+            password = str(input(question))           
         except ValueError:
             print("- Bitte geben Sie eine gültige Antwort: ")
             continue
