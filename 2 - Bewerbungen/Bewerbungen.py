@@ -2,7 +2,7 @@ import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import mathf, money, userinput
+import mathf, money, timeinput, userinput
 
 GENDER = ["Männlich", "Weiblich"]
 REGIONS = ["40", "42", "45", "46", "47", "48", "58", "59"]
@@ -26,7 +26,7 @@ def get_data():
     data["Hausnummer"] = userinput.get_int("- Bitte geben Sie Ihre Hausnummer ein: ", 1, 999)
     data["Postleitzahl"] = userinput.get_int("- Bitte geben Sie Ihr Postleitzahl ein: ", 10000, 99999)
     data["Stadt"] = userinput.get_string("- Bitte geben Sie Ihre Stadt ein: ") 
-    data["Geburtsdatum"] = userinput.get_date("- Bitte geben Sie Ihr Geburtsdatum ein")
+    data["Geburtsdatum"] = timeinput.get_time("- Bitte geben Sie Ihr Geburtsdatum ein", "Date")
     data["Gehaltsvorstellung"] = money.get("- Bitte geben Sie Ihr Gehaltsvorstellung ein: ", 1000, 10000, "C")
     data["Vorstrafen"] = userinput.get_bool("- Wurden Sie schon mal verurteilt")
 
@@ -43,7 +43,7 @@ def validate_bewerber():
         print("Leider entspricht Ihr Profil nicht unseren Erwartungen.")
 
 def validate_age():
-    age = mathf.get_age(data["Geburtsdatum"])
+    age = mathf.get_age(timeinput.parse_time(data["Geburtsdatum"], "Date"))
     return age < 50
 
 def validate_region():

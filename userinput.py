@@ -41,18 +41,6 @@ def get_bool(question):
         else:
             print(ErrorMessage)
             continue
-
-def get_date(question):
-    while True:
-        try:
-            value = str(input(question + " (01.01.2000): "))
-            day, month, year = map(int, value.split('.'))
-            datum = datetime(year, month, day)
-        except ValueError:
-            print(ErrorMessage)
-            continue
-        else:
-            return datum
         
 def get_choice(question, options):
     print(question)
