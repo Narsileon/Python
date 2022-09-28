@@ -36,13 +36,11 @@ def get_time(question, option):
     
     while True:
         try:
-            value = datetime.strptime(input("{} ({}): ".format(question, time_example)), time_format)
+            return datetime.strptime(input("{} ({}): ".format(question, time_example)), time_format)
         except ValueError:
             print("Bitte geben Sie Ihre Antwort im angegebenen Format ein: ")
             continue
-        
-        return value.strftime(time_format)
     
-def parse_time(value, option):
-    return datetime.strptime(value, OPTIONS[option]["Format"])
+def to_string(date, option):
+    return date.strftime(OPTIONS[option]["Format"])
     

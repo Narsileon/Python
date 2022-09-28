@@ -9,6 +9,8 @@ REGIONS = ["40", "42", "45", "46", "47", "48", "58", "59"]
 
 data = {}
 
+geburtsdatum = None
+
 def main():
     print("Bewerbung:")
     get_data()
@@ -25,8 +27,11 @@ def get_data():
     data["Straße"] = userinput.get_string("- Bitte geben Sie Ihre Straße ein: ") 
     data["Hausnummer"] = userinput.get_int("- Bitte geben Sie Ihre Hausnummer ein: ", 1, 999)
     data["Postleitzahl"] = userinput.get_int("- Bitte geben Sie Ihr Postleitzahl ein: ", 10000, 99999)
-    data["Stadt"] = userinput.get_string("- Bitte geben Sie Ihre Stadt ein: ") 
-    data["Geburtsdatum"] = timeinput.get_time("- Bitte geben Sie Ihr Geburtsdatum ein", "Date")
+    data["Stadt"] = userinput.get_string("- Bitte geben Sie Ihre Stadt ein: ")
+    
+    geburtsdatum = timeinput.get_time("- Bitte geben Sie Ihr Geburtsdatum ein", "Date")
+    data["Geburtsdatum"] = timeinput.to_string(geburtsdatum, "Date")
+    
     data["Gehaltsvorstellung"] = money.get("- Bitte geben Sie Ihr Gehaltsvorstellung ein: ", 1000, 10000, "C")
     data["Vorstrafen"] = userinput.get_bool("- Wurden Sie schon mal verurteilt")
 
