@@ -23,7 +23,7 @@ def get_data():
     data["Bewerbernummer"] = userinput.get_int("- Bitte geben Sie Ihre Bewerbernummer ein: ", 0)
     data["Nachname"] = userinput.get_string("- Bitte geben Sie Ihr Nachnamen ein: ")
     data["Vorname"] = userinput.get_string("- Bitte geben Sie Ihr Vornamen ein: ")
-    data["GENDER"] = userinput.get_choice("- Bitte geben Sie Ihr GENDER ein: ", GENDER)   
+    data["Gender"] = userinput.get_choice("- Bitte geben Sie Ihr Gender ein: ", GENDER)   
     data["Straße"] = userinput.get_string("- Bitte geben Sie Ihre Straße ein: ") 
     data["Hausnummer"] = userinput.get_int("- Bitte geben Sie Ihre Hausnummer ein: ", 1, 999)
     data["Postleitzahl"] = userinput.get_int("- Bitte geben Sie Ihr Postleitzahl ein: ", 10000, 99999)

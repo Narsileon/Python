@@ -79,12 +79,12 @@ def validate_currency(currency):
     elif currency[-1] == CURRENCY:
         return Decimal(currency[:-1])
 
-def format_currency(currency, f):
-    currency = Decimal("%.2f" % currency)
+def format_currency(value, f):
+    value = Decimal("%.2f" % value)
     
     if (f == "C"):
-        return str(currency) + CURRENCY
+        return str(value) + CURRENCY
     
     elif (f == "D"):
-        return currency
+        return value
     

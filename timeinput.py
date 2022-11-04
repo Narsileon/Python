@@ -40,7 +40,10 @@ def get_time(question, option):
         except ValueError:
             print("Bitte geben Sie Ihre Antwort im angegebenen Format ein: ")
             continue
-    
+
+def parse_time(value, option):
+    return datetime.strptime(value, OPTIONS[option]["Format"])
+
 def to_string(date, option):
     return date.strftime(OPTIONS[option]["Format"])
     
