@@ -1,6 +1,8 @@
 import os
 import sqlite3
 
+ONLINE_VIEVER = "https://inloop.github.io/sqlite-viewer/"
+
 PATH = os.path.dirname(os.path.realpath(__file__)) + "/python.db"
 
 connection = sqlite3.connect(PATH)
