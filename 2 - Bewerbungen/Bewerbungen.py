@@ -2,14 +2,12 @@ import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import mathf, money, timeinput, userinput
+import database, mathf, money, timeinput, userinput
 
 GENDER = ["Männlich", "Weiblich"]
 REGIONS = ["40", "42", "45", "46", "47", "48", "58", "59"]
 
 data = {}
-
-geburtsdatum = None
 
 def main():
     print("Bewerbung:")
@@ -18,6 +16,8 @@ def main():
     display_data()
     print("")
     validate_bewerber()
+    
+    save_data()
 
 def get_data():
     data["Bewerbernummer"] = userinput.get_int("- Bitte geben Sie Ihre Bewerbernummer ein: ", 0)
@@ -54,5 +54,9 @@ def validate_age():
 def validate_region():
     region = str(data["Postleitzahl"])[0: 2]
     return region in REGIONS
+
+def save_data():
+    values = ', '.join("'" + str(x) + "'" for x in data.values())
+    database.insert("candidates", "{}".format(values))
     
 main()
