@@ -2,6 +2,7 @@ import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+import random
 import userinput
 
 R0 = " ----- "
@@ -19,13 +20,14 @@ DICES = [
     [R0, R2, R3, R4, R0],
     [R0, R5, R1, R5, R0],
     [R0, R5, R3, R5, R0],
-    [R0, R5, R5, R5, R0]
+    [R0, R5, R5, R5, R0],
 ]
 
 data = {}
 
 def main():
     get_data()
+    print("")
     display_dice()
 
 def get_data():
@@ -40,6 +42,9 @@ def display_dice():
 def print_dice(index):
     for i in DICES[index]:
         print(i)
-     
+
+def print_random_dice():
+    print_dice(random.randint(1, 6))
+        
 main()
     

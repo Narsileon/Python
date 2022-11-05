@@ -74,7 +74,7 @@ def display_data():
 
 def display_articles_data():
     for i in articles:
-        print ("Artikel n°" + str(i) + ":")
+        print("Artikel n°" + str(i) + ":")
         
         for x, y in articles[i].items():     
             print("- {}: {}".format(x, y))  
