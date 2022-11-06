@@ -1,9 +1,13 @@
 import os
 import jsonserializer
 
-LOCALE = "de.json"
+LOCALE = "de"
 
-DICTIONARY = jsonserializer.load_dictionary(LOCALE)
+DICTIONARY = jsonserializer.load_dictionary("{}.json".format(LOCALE))
 
 def t(key):
-    return DICTIONARY[key]
+    try:
+        value = DICTIONARY[key]
+        return value
+    except:
+        return key
