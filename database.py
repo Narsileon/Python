@@ -3,7 +3,7 @@ import sqlite3
 
 ONLINE_VIEVER = "https://inloop.github.io/sqlite-viewer/"
 
-PATH = os.path.dirname(os.path.realpath(__file__)) + "/python.db"
+PATH = os.path.dirname(os.path.realpath(__file__)) + "/Database/database.db"
 
 connection = sqlite3.connect(PATH)
 cursor = connection.cursor()
@@ -15,7 +15,7 @@ def create_table(table, fields):
         print("Die Tabelle '{}' wurde erfolgreich erstellt.".format(table))
         
     else:
-        print("Die Tabelle '{}' wurde nicht gefunden.".format(table))
+        print("Die Tabelle '{}' existiert bereits.".format(table))
 
 def delete_table(table):
     if (exist(table)):

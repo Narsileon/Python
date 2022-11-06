@@ -1,0 +1,16 @@
+{
+    "age": "Alter",
+    "birth_date": "Geburtsdatum",
+    "candidate_number": "Bewerbernummer",
+    "city": "Stadt",
+    "country": "Land",
+    "first_name": "Vorname",
+    "gender": "Geschlect",
+    "house_number": "Hausnummer",
+    "id": "ID",
+    "last_name": "Nachname",
+    "police_record": "Vorstrafen",
+    "post_code": "Postleitzahl",
+    "salary": "Gehalt",
+    "street": "Street"
+}

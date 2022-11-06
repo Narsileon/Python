@@ -1,0 +1,16 @@
+{
+    "age": "Age",
+    "birth_date": "Date of Birth",
+    "candidate_number": "Candidate number",
+    "city": "City",
+    "country": "Country",
+    "first_name": "First name",
+    "gender": "id",
+    "house_number": "House number",
+    "id": "ID",
+    "last_name": "Last name",
+    "police_record": "Police record",
+    "post_code": "Post code",
+    "salary": "Salary",
+    "street": "Street"
+}
