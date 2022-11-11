@@ -4,9 +4,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import math, money, userinput
 
+from localization import t
+
 articles = {}
 delivery = {}
 invoice = {}
+
+delivery_price = "5.00€"
 
 def main():
     get_articles_data()
@@ -18,15 +22,15 @@ def main():
 def get_articles_data():
     index = 0
     
-    print("Weingeschäft:")
+    print("{}:".format(t("wine_shop")))
     
     while True:
         article = {}
         
-        article["Name"] = userinput.get_string("- Bitte geben Sie den Namen des Weines ein: ")
-        article["Anzahl"] = userinput.get_int("- Bitte geben Sie die gewünschte Menge ein: ", 1, 99)
-        article["Einzelnettopreis"] = money.get("- Bitte geben Sie den Stückpreis ein: ", 1, 99, "C")
-        article["Einzelbruttopreis"] = money.netto_to_brutto(article["Einzelnettopreis"], "C") 
+        article["name"] = userinput.get_string("- Bitte geben Sie den Namen des Weines ein: ")
+        article["quantity"] = userinput.get_int("- Bitte geben Sie die gewünschte Menge ein: ", 1, 99)
+        article["single_net_price"] = money.get("- Bitte geben Sie den Stückpreis ein: ", 1, 99, "C")
+        article["single_gross_price"] = money.netto_to_brutto(article["single_net_price"], "C") 
         
         articles[index] = article
         
@@ -39,32 +43,32 @@ def get_articles_data():
             break
 
 def set_delivery_data():
-    gesamtanzahl = 0
+    total_quantity = 0
     
     for i in articles:          
-        gesamtanzahl += articles[i]["Anzahl"]
+        total_quantity += articles[i]["quantity"]
     
-    delivery["Gesamtanzahl"] = gesamtanzahl
-    delivery["Kartons"] = math.ceil(delivery["Gesamtanzahl"] / 6)
-    delivery["Freie Plätze"] = (delivery["Kartons"] * 6) - delivery["Gesamtanzahl"]
-    delivery["Lieferpreis"] = "5.00€"
+    delivery["total_quantity"] = total_quantity
+    delivery["cartons"] = math.ceil(total_quantity / 6)
+    delivery["free_slots"] = (delivery["cartons"] * 6) - total_quantity
+    delivery["delivery_price"] = delivery_price
 
 def set_invoice_data():
-    gesamtnettopreis = 0
-    gesamtbruttopreis = 0
+    total_net_price = 0
+    total_gross_price = 0
     
     for i in articles:          
-        gesamtnettopreis += money.multiply(articles[i]["Einzelnettopreis"], articles[i]["Anzahl"])
-        gesamtbruttopreis += money.multiply(articles[i]["Einzelbruttopreis"], articles[i]["Anzahl"])
+        total_net_price += money.multiply(articles[i]["single_net_price"], articles[i]["quantity"])
+        total_gross_price += money.multiply(articles[i]["single_gross_price"], articles[i]["quantity"])
     
-    gesamtnettopreis = money.add(gesamtnettopreis, delivery["Lieferpreis"])
-    gesamtbruttopreis = money.add(gesamtbruttopreis, delivery["Lieferpreis"])
+    total_net_price = money.add(total_net_price, delivery_price)
+    total_gross_price = money.add(total_gross_price, delivery_price)
     
-    invoice["Gesamtnettopreis"] = str(gesamtnettopreis) + money.CURRENCY
-    invoice["Gesamtbruttopreis"] = str(gesamtbruttopreis) + money.CURRENCY 
+    invoice["total_net_price"] = str(total_net_price) + money.CURRENCY
+    invoice["total_gross_price"] = str(total_gross_price) + money.CURRENCY 
 
 def display_data():
-    print("Zusammenfassung der Bestellung:")   
+    print("{}:".format(t("order_summary")))   
     print("")
     display_articles_data()
     print("")
@@ -77,18 +81,18 @@ def display_articles_data():
         print("Artikel n°" + str(i) + ":")
         
         for x, y in articles[i].items():     
-            print("- {}: {}".format(x, y))  
+            print("- {}: {}".format(t(x), y))  
 
 def display_delivery_data():
-    print("Zusammenfassung der Lieferung:")
+    print("{}:".format(t("delivery_summary")))
     
     for x, y in delivery.items():
-        print("- {}: {}".format(x, y))
+        print("- {}: {}".format(t(x), y))
 
 def display_invoice_data():
-    print("Zusammenfassung der Rechnung:")
+    print("{}:".format(t("invoice_summary")))
     
     for x, y in invoice.items():
-        print("- {}: {}".format(x, y))
+        print("- {}: {}".format(t(x), y))
 
 main()

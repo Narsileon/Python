@@ -6,6 +6,9 @@ ONLINE_VIEVER = "https://inloop.github.io/sqlite-viewer/"
 PATH = os.path.dirname(os.path.realpath(__file__)) + "/Database/database.db"
 
 connection = sqlite3.connect(PATH)
+
+connection.row_factory = sqlite3.Row
+
 cursor = connection.cursor()
 
 def create_table(table, fields):
@@ -39,6 +42,10 @@ def insert(table, entries):
     cursor.execute("INSERT INTO {} VALUES ({})".format(table, entries))
     
     connection.commit()
+    
+def select_all(table):
+    res = cursor.execute("SELECT * FROM {}".format(table))
+    return res.fetchall()
 
 def exist(table):
     res = cursor.execute("SELECT name FROM sqlite_master WHERE name='{}'".format(table))

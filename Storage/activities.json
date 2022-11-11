@@ -1,74 +1,83 @@
-{
-    "Mountainbike fahren": {
-        "Bezeichnung": "",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Montag bis Freitag ab 18 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": 7,
-        "Teilnehmerzahl_Max": "10"
+[
+    {
+        "name": "Mountainbike fahren",
+        "description": "",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Montag bis Freitag ab 18 Uhr",
+        "duration": "6 Monate",
+        "participants_number": 7,
+        "max_participants_number": "10"
     },
-    "Klettern": {
-        "Bezeichnung": "Vorkenntnisse erforderlich",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Dienstags, von 20 bis 22 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": 5,
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Klettern",
+        "description": "Vorkenntnisse erforderlich",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Dienstags, von 20 bis 22 Uhr",
+        "duration": "6 Monate",
+        "participants_number": 5,
+        "max_participants_number": "10"
     },
-    "Aerobic Stufe I": {
-        "Bezeichnung": "fÃ¼r AnfÃ¤nger",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Montags, von 17 bis 18 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "2",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Aerobic Stufe I",
+        "description": "für Anfänger",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Montags, von 17 bis 18 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "2",
+        "max_participants_number": "10"
     },
-    "Aerobic Stufe II": {
-        "Bezeichnung": "mit Vorkenntnissen",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Mittwochs, von 9 bis 10 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "4",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Aerobic Stufe II",
+        "description": "mit Vorkenntnissen",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Mittwochs, von 9 bis 10 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "4",
+        "max_participants_number": "10"
     },
-    "Aerobic Stufe III": {
-        "Bezeichnung": "fÃ¼r Experten",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Freitags, von 20 bis 21 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "5",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Aerobic Stufe III",
+        "description": "für Experten",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Freitags, von 20 bis 21 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "5",
+        "max_participants_number": "10"
     },
-    "Zumba": {
-        "Bezeichnung": "",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Donnerstags, von 20 bis 21 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "7",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Zumba",
+        "description": "",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Donnerstags, von 20 bis 21 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "7",
+        "max_participants_number": "10"
     },
-    "Billard": {
-        "Bezeichnung": "",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Freitags, ab 18 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "6",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Billard",
+        "description": "",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Freitags, ab 18 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "6",
+        "max_participants_number": "10"
     },
-    "Bowling": {
-        "Bezeichnung": "",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Montags, ab 19 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "8",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Bowling",
+        "description": "",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Montags, ab 19 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "8",
+        "max_participants_number": "10"
     },
-    "Yoga": {
-        "Bezeichnung": "",
-        "Kursort": "Neuhauser 123, 12345 Stadt",
-        "Kurstermin": "Mittwochs, von 18 bis 20 Uhr",
-        "Kursdauer": "6 Monate",
-        "Teilnehmerzahl": "9",
-        "Teilnehmerzahl_Max": "10"
+    {
+        "name": "Yoga",
+        "description": "",
+        "location": "Neuhauser 123, 12345 Stadt",
+        "dates": "Mittwochs, von 18 bis 20 Uhr",
+        "duration": "6 Monate",
+        "participants_number": "9",
+        "max_participants_number": "10"
     }
-}
+]

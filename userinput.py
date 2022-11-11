@@ -1,6 +1,8 @@
 from datetime import datetime
 
-ErrorMessage = "Bitte geben Sie eine gültige Antwort. "
+from localization import t
+
+ErrorMessage =  "{} ".format(t("Please provide a valid answer."))
 
 def get_string(question, minLen = 3, maxLen = 255):
     while True:
@@ -31,12 +33,12 @@ def get_int(question, minValue = -9223372036854775808, maxValue = 92233720368547
 def get_bool(question):
     while True:
         try:
-            value = str(input(question + " (Ja/Nein)? "))
+            value = str(input(question + " ({}/{})? ".format(t("yes"), t("no"))))
         except ValueError:
             print(ErrorMessage)
-        if (value == "Ja" or value == "ja"):
+        if (value == t("yes")):
             return True
-        elif (value == "Nein" or value == "nein"):
+        elif (value == t("no")):
             return False
         else:
             print(ErrorMessage)

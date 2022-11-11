@@ -5,15 +5,16 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import database, mathf, money, timeinput, userinput
+
 from localization import t
 
-GENDER = ["Männlich", "Weiblich"]
+GENDER = [t("male"), t("female")]
 REGIONS = ["40", "42", "45", "46", "47", "48", "58", "59"]
 
 data = {}
 
 def main():
-    print("Bewerbung:")
+    print("{}:".format(t("candidature")))
     get_data()
     print("")
     display_data()
@@ -39,7 +40,7 @@ def get_data():
     data[M.FIELD_POLICE_RECORD] = userinput.get_bool("- Wurden Sie schon mal verurteilt")
 
 def display_data():   
-    print("Zusammenfassung:")
+    print("{}:".format(t("summary")))
     
     for x, y in data.items():
         print("- {}: {}".format(t(x), y))

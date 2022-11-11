@@ -1,26 +1,24 @@
+import activity as M
+
 import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import jsonserializer, userinput
+import database, jsonserializer, userinput
 
-activities = []
+from localization import t
+
+ACTIVITIES = database.select_all(M.TABLE)
+
 activity = {}
 
 def main():
-    load_activities()   
     get_activity()
-    
     print("")
     display_data()
     
     set_activity()
-    save_activities()
-
-def load_activities():
-    global activities
-    
-    activities = jsonserializer.load_dictionary("activities.json")
+    #save_activities()
     
 def save_activities():
     activities[activity["Name"]] = activity["Data"]
@@ -28,15 +26,16 @@ def save_activities():
     jsonserializer.save_dictionary("activities.json", activities)
 
 def get_activity():
-    activity["Name"] = userinput.get_choice("Bitte wählen Sie eine Aktivität: ", list(activities))
-    activity["Data"] = activities[activity["Name"]]
+    activity_list = list((x["name"]) for x in ACTIVITIES)
+    
+    activity = userinput.get_choice("Bitte wählen Sie eine Aktivität: ", activity_list)
 
 def display_data():
-    print("Aktivität:", activity["Name"], format_description())
-    print("- Kursort:", activity["Data"]["Kursort"])
-    print("- Kurstermin:", activity["Data"]["Kurstermin"])
-    print("- Kursdauer:", activity["Data"]["Kursdauer"])
-    print("- Teilnehmer: {}/{}".format(activity["Data"]["Teilnehmerzahl"], activity["Data"]["Teilnehmerzahl_Max"]))
+    print("Aktivität:", activity[M.FIELD_NAME], format_description())
+    print("- {}:".format(t(M.FIELD_LOCATION)), activity["Data"]["Kursort"])
+    print("- {}:".format(t(M.FIELD_DATES)), activity["Data"]["Kurstermin"])
+    print("- {}:".format(t(M.FIELD_DURATION)), activity["Data"]["Kursdauer"])
+    print("- {}: {}/{}".format(t("participants"), activity["Data"]["Teilnehmerzahl"], activity["Data"]["Teilnehmerzahl_Max"]))
 
 def set_activity():
     beteiligung = userinput.get_bool("Möchten Sie an diesen Kurs teilnehmen")
