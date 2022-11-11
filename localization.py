@@ -1,13 +1,19 @@
+import json
 import os
-import jsonserializer
+
+PATH = os.path.dirname(os.path.realpath(__file__)) + "/Lang/"
 
 LOCALE = "de"
 
-DICTIONARY = jsonserializer.load_dictionary("{}.json".format(LOCALE))
+LOCALIZATION = load_localization()
 
+def load_localization():
+    with open(PATH + "{}.json".format(LOCALE), 'r', encoding='utf-8') as file:
+        return json.load(file)
+    
 def t(key):
     try:
-        value = DICTIONARY[key]
+        value = LOCALIZATION[key]
         return value
     except:
         return key
