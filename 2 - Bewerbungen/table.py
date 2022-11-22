@@ -21,6 +21,7 @@ FIELD_POLICE_RECORD = "police_record"
 def main():
     delete_table()
     create_table()
+    print("")
     
 def create_table():
     fields = ', '.join(value for name, value in globals().items() if name.startswith('FIELD'))

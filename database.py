@@ -1,5 +1,7 @@
-import os
 import sqlite3
+from localization import t
+
+import os
 
 ONLINE_VIEVER = "https://inloop.github.io/sqlite-viewer/"
 
@@ -15,19 +17,19 @@ def create_table(table, fields):
     if not (exist(table)):
         cursor.execute("CREATE TABLE {}({})".format(table, fields))
     
-        print("Die Tabelle '{}' wurde erfolgreich erstellt.".format(table))
+        print(t("table_created").format(table))
         
     else:
-        print("Die Tabelle '{}' existiert bereits.".format(table))
+        print(t("table_exist").format(table))
 
 def delete_table(table):
     if (exist(table)):
         cursor.execute("DROP TABLE {}".format(table))
     
-        print("Die Tabelle '{}' wurde erfolgreich gelöscht.".format(table))
+        print(t("table_deleted").format(table))
         
     else:
-        print("Die Tabelle '{}' wurde nicht gefunden.".format(table))
+        print(t("table_not_found").format(table))
 
 def delete_all_tables():
     res = cursor.execute("SELECT name FROM sqlite_master")   

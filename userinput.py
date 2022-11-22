@@ -13,7 +13,7 @@ def get_string(question, minLen = 3, maxLen = 255):
         if (minLen <= len(value) <= maxLen):
             return value
         else:
-            print(ErrorMessage + "Die Antwort muss zwischen {} und {} Zeichen lang sein. ".format(minLen, maxLen))
+            print(ErrorMessage + t("string_length_between").format(minLen, maxLen))
             continue
         
 def get_int(question, minValue = -9223372036854775808, maxValue = 9223372036854775807):
@@ -26,7 +26,7 @@ def get_int(question, minValue = -9223372036854775808, maxValue = 92233720368547
         if (minValue <= value <= maxValue):
             return value
         else:
-            print(ErrorMessage + "Die Antwort muss zwischen {} und {} liegen. ".format(minValue, maxValue))
+            print(ErrorMessage + t("value_between").format(minValue, maxValue))
             continue  
 
 def get_bool(question):

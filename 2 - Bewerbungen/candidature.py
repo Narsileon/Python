@@ -1,4 +1,4 @@
-import candidate as M
+import table as M
 
 import os, sys
 
@@ -34,7 +34,7 @@ def main():
 def get_data():
     data[M.FIELD_CANDIDATE_NUMBER] = userinput.get_int(t("input_candidate_number"), 0)
     
-    # Personal Informations
+    # Personal informations
     data[M.FIELD_LAST_NAME] = userinput.get_string(t("input_last_name"))
     data[M.FIELD_FIRST_NAME] = userinput.get_string(t("input_first_name"))
     data[M.FIELD_GENDER] = userinput.get_choice(t("input_gender"), [
