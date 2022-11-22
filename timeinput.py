@@ -1,10 +1,39 @@
 from datetime import datetime
+from localization import t
 
 import userinput
 
-DAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
-MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
-SEASONS = ["Frühling", "Sommer", "Herbst", "Winter"]
+DAYS = [
+    t("monday"),
+    t("tuesday"),
+    t("wednesday"),
+    t("thursday"),
+    t("friday"),
+    t("saturday"),
+    t("sunday")
+]
+
+MONTHS = [
+    t("january"),
+    t("february"),
+    t("march"),
+    t("april"),
+    t("may"),
+    t("june"),
+    t("july"),
+    t("august"),
+    t("september"),
+    t("october"),
+    t("november"),
+    t("december")
+]
+
+SEASONS = [
+    t("spring"),
+    t("summer"),
+    t("autumn"),
+    t("winter")
+]
 
 OPTIONS = {
     "Full": {
@@ -22,13 +51,13 @@ OPTIONS = {
 }
 
 def get_day():
-    return userinput.get_choice("Bitte wählen Sie einen Tag: ", DAYS)
+    return userinput.get_choice(t("input_day"), DAYS)
 
 def get_month():
-    return userinput.get_choice("Bitte wählen Sie einen Monat: ", MONTHS)
+    return userinput.get_choice(t("input_monat"), MONTHS)
 
 def get_season():
-    return userinput.get_choice("Bitte wählen Sie eine Jahreszeit: ", SEASONS)
+    return userinput.get_choice(t("input_season"), SEASONS)
 
 def get_time(question, option):
     time_format = OPTIONS[option]["Format"]
@@ -36,7 +65,7 @@ def get_time(question, option):
     
     while True:
         try:
-            return datetime.strptime(input("{} ({}): ".format(question, time_example)), time_format)
+            return datetime.strptime(input("{}({}) ".format(question, time_example)), time_format)
         except ValueError:
             print("Bitte geben Sie Ihre Antwort im angegebenen Format ein: ")
             continue

@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from localization import t
 
 ErrorMessage =  "{} ".format(t("Please provide a valid answer."))
@@ -33,7 +32,7 @@ def get_int(question, minValue = -9223372036854775808, maxValue = 92233720368547
 def get_bool(question):
     while True:
         try:
-            value = str(input(question + " ({}/{})? ".format(t("yes"), t("no"))))
+            value = str(input("{}({}/{}) ".format(question, t("yes"), t("no"))))
         except ValueError:
             print(ErrorMessage)
         if (value == t("yes")):
@@ -50,5 +49,5 @@ def get_choice(question, options):
     for x, element in enumerate(options):
         print("  {}) {}".format(x + 1, element))
 
-    return options[get_int("  => Auswahl (Nummer): ", 1, len(options)) - 1]
+    return options[get_int("  => {}: ".format(t("number")), 1, len(options)) - 1]
         
