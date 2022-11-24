@@ -13,7 +13,7 @@ def get(question, minValue = -9223372036854775808, maxValue = 922337203685477580
     while True:
         try:
             value = float(input(question))
-            value = format_currency(value, "D")
+            value = Decimal("%.2f" % value)
             
         except ValueError:
             print(t("Please provide a valid answer."))
