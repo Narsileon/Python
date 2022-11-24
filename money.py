@@ -1,25 +1,29 @@
 import math
 
 from decimal import Decimal
+from localization import t
 
 CURRENCY = "€"
 TAX = 19.00
 
 def get(question, minValue = -9223372036854775808, maxValue = 9223372036854775807, format_option = "D"):
+    minValue = format_currency(minValue, "D")
+    maxValue = format_currency(maxValue, "D")
+    
     while True:
         try:
             value = float(input(question))
-            value = Decimal("%.2f" % value)
+            value = format_currency(value, "D")
             
         except ValueError:
-            print("Bitte geben Sie eine gültige Antwort: ")
+            print(t("Please provide a valid answer."))
             continue
         
         if (minValue <= value <= maxValue):
-            return format_currency(value, format_option)
+            return value
         
         else:
-            print("Bitte geben Sie eine Antwort zwischen {} und {}: ".format(minValue, maxValue))
+            print(t("value_between").format(minValue, maxValue))
             continue
 
 def add(a, b, format_option = "D"):
@@ -80,8 +84,8 @@ def validate_currency(currency):
         return Decimal(currency[:-1])
 
 def format_currency(value, f):
-    value = Decimal("%.2f" % value)
-    
+    value = Decimal(value).quantize(Decimal('.01'), rounding="ROUND_DOWN")
+
     if (f == "C"):
         return str(value) + CURRENCY
     
