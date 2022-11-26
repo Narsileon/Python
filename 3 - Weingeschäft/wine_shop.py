@@ -10,9 +10,11 @@ articles = {}
 delivery = {}
 invoice = {}
 
+carton_capacity = 6
 delivery_price = "5.00€"
 
 def main():
+    print("{}:".format(t("wine_shop")))
     get_articles_data()
     set_delivery_data()
     set_invoice_data()
@@ -21,8 +23,6 @@ def main():
 
 def get_articles_data():
     index = 0
-    
-    print("{}:".format(t("wine_shop")))
     
     while True:
         article = {}
@@ -49,8 +49,8 @@ def set_delivery_data():
         total_quantity += articles[i]["quantity"]
     
     delivery["total_quantity"] = total_quantity
-    delivery["cartons"] = math.ceil(total_quantity / 6)
-    delivery["free_slots"] = (delivery["cartons"] * 6) - total_quantity
+    delivery["cartons"] = math.ceil(total_quantity / carton_capacity)
+    delivery["free_slots"] = (delivery["cartons"] * carton_capacity) - total_quantity
     delivery["delivery_price"] = delivery_price
 
 def set_invoice_data():

@@ -2,6 +2,8 @@ import os, sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from localization import t
+
 import random
 import userinput
 
@@ -26,16 +28,17 @@ DICES = [
 data = {}
 
 def main():
+    print("{}:".format(t("dices")))
     get_data()
     print("")
     display_dice()
 
 def get_data():
-    data["Zahl"] = userinput.get_int("Bitte geben Sie den gewünschten Wert des Würfels ein: ")
+    data["number"] = userinput.get_int(t("input_dice"))
     
 def display_dice():
-    if (1 <= data["Zahl"] <= 6):
-        print_dice(data["Zahl"])
+    if (1 <= data["number"] <= 6):
+        print_dice(data["number"])
     else:
         print_dice(0)   
     

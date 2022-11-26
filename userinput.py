@@ -30,14 +30,16 @@ def get_int(question, minValue = -9223372036854775808, maxValue = 92233720368547
             continue  
 
 def get_bool(question):
+    choice = "({}/{})".format(t("yes"), t("no"))
+    
     while True:
         try:
-            value = str(input("{}({}/{}) ".format(question, t("yes"), t("no"))))
+            value = str(input(question.format(choice)))
         except ValueError:
             print(ErrorMessage)
-        if (value == t("yes")):
+        if (value == t("yes") or value == t("yes").lower()):
             return True
-        elif (value == t("no")):
+        elif (value == t("no") or value == t("no").lower()):
             return False
         else:
             print(ErrorMessage)

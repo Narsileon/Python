@@ -51,13 +51,13 @@ OPTIONS = {
 }
 
 def get_day():
-    return userinput.get_choice(t("input_day"), DAYS)
+    return userinput.get_choice(t("choice_day"), DAYS)
 
 def get_month():
-    return userinput.get_choice(t("input_monat"), MONTHS)
+    return userinput.get_choice(t("choice_month"), MONTHS)
 
 def get_season():
-    return userinput.get_choice(t("input_season"), SEASONS)
+    return userinput.get_choice(t("choice_season"), SEASONS)
 
 def get_time(question, option):
     time_format = OPTIONS[option]["Format"]
