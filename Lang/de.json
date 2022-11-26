@@ -131,6 +131,8 @@
     "tuesday": "Dienstag",
     "Unfortunately, your profile does not meet our expectations.": "Leider entspricht Ihr Profil nicht unseren Erwartungen.",
     "value_between": "Die Antwort muss zwischen {} und {} liegen. ",
+    "value_clamped_down": "'{}' was greater than {} and was clamped.",
+    "value_clamped_up": "'{}' was less than {} and was clamped.",
     "We have sent you an invitation for an interview!": "Wir haben Ihnen eine Einladung zu einem Vorstellungsgespräch zugeschickt!",
     "wednesday": "Mittwoch",
     "wine_shop": "Weingeschäft",
