@@ -67,7 +67,7 @@ def get_time(question, option):
         try:
             return datetime.strptime(input("{}({}) ".format(question, time_example)), time_format)
         except ValueError:
-            print("Bitte geben Sie Ihre Antwort im angegebenen Format ein: ")
+            print(t("Please provide a valid answer."))
             continue
 
 def parse_time(value, option):

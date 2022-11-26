@@ -131,6 +131,8 @@
     "tuesday": "Tuesday",
     "Unfortunately, your profile does not meet our expectations.": "Unfortunately, your profile does not meet our expectations.",
     "value_between": "The answer must be between {} and {}. ",
+    "value_clamped_down": "'{}' war größer als {} und wurde geklemmt.",
+    "value_clamped_up": "'{}' war kleiner als {} und wurde geklemmt.",
     "We have sent you an invitation for an interview!": "We have sent you an invitation for an interview!",
     "wednesday": "Wednesday",
     "wine_shop": "Wine shop",
