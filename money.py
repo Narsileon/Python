@@ -20,7 +20,7 @@ def get(question, minValue = -9223372036854775808, maxValue = 922337203685477580
             continue
         
         if (minValue <= value <= maxValue):
-            return value
+            return format_currency(value, format_option)
         
         else:
             print(t("value_between").format(minValue, maxValue))

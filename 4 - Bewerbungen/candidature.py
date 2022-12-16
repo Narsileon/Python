@@ -8,6 +8,17 @@ from localization import t
 
 import database, mathf, money, timeinput, userinput
 
+REGIONS = [
+    "40",     
+    "42",
+    "45",
+    "46",
+    "47",
+    "48",
+    "58",
+    "59"
+]
+
 data = {}
 
 def main():
@@ -15,6 +26,8 @@ def main():
     get_data()
     print("")
     display_data()
+    print("")
+    validate_candidate()
     
     save_data()
 
@@ -46,6 +59,20 @@ def display_data():
     
     for x, y in data.items():
         print("- {}: {}".format(t(x), y))
+
+def validate_candidate():  
+    if not (data[M.FIELD_POLICE_RECORD]) and validate_age() and validate_region():
+        print(t("We have sent you an invitation for an interview!"))
+    else:
+        print(t("Unfortunately, your profile does not meet our expectations."))
+
+def validate_age():
+    age = mathf.get_age(timeinput.parse_time(data[M.FIELD_BIRTH_DATE], "Date"))
+    return age < 50
+
+def validate_region():
+    region = str(data[M.FIELD_POST_CODE])[0: 2]
+    return region in REGIONS
 
 def save_data():
     values = ', '.join("'" + str(x) + "'" for x in data.values())
