@@ -1,4 +1,4 @@
-import activity as M
+import table as M
 
 import os, sys
 
@@ -8,9 +8,8 @@ import database, jsonserializer, userinput
 
 from localization import t
 
-ACTIVITIES = database.select_all(M.TABLE)
-
-activity = {}
+activities = []
+activity = []
 
 def main():
     get_activity()
@@ -18,32 +17,47 @@ def main():
     display_data()
     
     set_activity()
-    #save_activities()
     
-def save_activities():
-    activities[activity["Name"]] = activity["Data"]
-    
-    jsonserializer.save_dictionary("activities.json", activities)
-
 def get_activity():
-    activity_list = list((x["name"]) for x in ACTIVITIES)
+    global ACTIVITIES
+    global activity
+    global activity_index
     
-    activity = userinput.get_choice("Bitte wählen Sie eine Aktivität: ", activity_list)
+    ACTIVITIES = database.select_all(M.TABLE)
+    activity_name_list = list((x[M.FIELD_NAME]) for x in ACTIVITIES)
+    
+    activity_name = userinput.get_choice(t("choice_activity"), activity_name_list)
+    
+    activity = next(x for x in ACTIVITIES if x[M.FIELD_NAME] == activity_name)
 
-def display_data():
-    print("Aktivität:", activity[M.FIELD_NAME], format_description())
-    print("- {}:".format(t(M.FIELD_LOCATION)), activity["Data"]["Kursort"])
-    print("- {}:".format(t(M.FIELD_DATES)), activity["Data"]["Kurstermin"])
-    print("- {}:".format(t(M.FIELD_DURATION)), activity["Data"]["Kursdauer"])
-    print("- {}: {}/{}".format(t("participants"), activity["Data"]["Teilnehmerzahl"], activity["Data"]["Teilnehmerzahl_Max"]))
+def display_data():   
+    print("- {}:".format(t("Activity")), activity[M.FIELD_NAME], format_description())
+    print("- {}:".format(t(M.FIELD_LOCATION)), activity[M.FIELD_LOCATION])
+    print("- {}:".format(t(M.FIELD_DATES)), activity[M.FIELD_DATES])
+    print("- {}:".format(t(M.FIELD_DURATION)), activity[M.FIELD_DURATION])
+    print("- {}: {}/{}".format(t("participants"), activity[M.FIELD_PARTICIPANTS_NUMBER], activity[M.FIELD_PARTICIPANTS_NUMBER_MAX]))
 
 def set_activity():
-    beteiligung = userinput.get_bool("Möchten Sie an diesen Kurs teilnehmen")
-    
-    if (beteiligung and int(activity["Data"]["Teilnehmerzahl"]) < int(activity["Data"]["Teilnehmerzahl_Max"])):
-        activity["Data"]["Teilnehmerzahl"] = int(activity["Data"]["Teilnehmerzahl"]) + 1
+    if (int(activity[M.FIELD_PARTICIPANTS_NUMBER]) < int(activity[M.FIELD_PARTICIPANTS_NUMBER_MAX])):
+        if (userinput.get_bool(t("Would you like to take this course?"))):
+            database.update(
+                M.TABLE,
+                "{}={}+1".format(M.FIELD_PARTICIPANTS_NUMBER, M.FIELD_PARTICIPANTS_NUMBER),
+                "{}='{}'".format(M.FIELD_NAME, activity[M.FIELD_NAME])
+            )
+            
+            if (userinput.get_bool(t("Would you like to choose another course?"))):
+                main()
+        else:
+            if (userinput.get_bool(t("Would you like to choose a different course?"))):
+                main()
+    else:
+        print(t("Unfortunately, this course is already full."))
+
+        if (userinput.get_bool(t("Would you like to choose a different course?"))):
+            main()
         
 def format_description():
-    return "" if activity["Data"]["Bezeichnung"] == "" else "(" + activity["Data"]["Bezeichnung"] + ")"
+    return "" if activity[M.FIELD_DESCRIPTION] == "" else "(" + activity[M.FIELD_DESCRIPTION] + ")"
         
 main()

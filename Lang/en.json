@@ -18,6 +18,7 @@
     "cash_machine": "Cash machine",
     "category": "Category",
     "cent_coins": "cent coins",
+    "choice_activity": "- Please choose an activity: ",
     "choice_category": "- Please choose a category: ",
     "choice_day": "- Please choose a day: ",
     "choice_floor": "- Please choose a floor: ",
@@ -129,6 +130,7 @@
     "total_net_price": "Total net price",
     "total_quantity": "Total quantity",
     "tuesday": "Tuesday",
+    "Unfortunately, this course is already full.": "Unfortunately, this course is already full.",
     "Unfortunately, your profile does not meet our expectations.": "Unfortunately, your profile does not meet our expectations.",
     "value_between": "The answer must be between {} and {}. ",
     "value_clamped_down": "'{}' war größer als {} und wurde geklemmt.",
@@ -137,6 +139,9 @@
     "wednesday": "Wednesday",
     "wine_shop": "Wine shop",
     "winter": "Winter",
+    "Would you like to choose a different course?": "Would you like to choose a different course {}? ",
+    "Would you like to choose another course?": "Would you like to choose another course {}? ",
     "Would you like to order an additional wine?": "Would you like to order an additional wine {}? ",
+    "Would you like to take this course?": "Would you like to take this course {}? ",
     "yes": "Yes"
 }

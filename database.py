@@ -44,6 +44,11 @@ def insert(table, entries):
     cursor.execute("INSERT INTO {} VALUES ({})".format(table, entries))
     
     connection.commit()
+
+def update(table, values, where):
+    cursor.execute("UPDATE {} SET {} WHERE {}".format(table, values, where))
+    
+    connection.commit()
     
 def select_all(table):
     res = cursor.execute("SELECT * FROM {}".format(table))

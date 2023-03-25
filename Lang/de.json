@@ -18,6 +18,7 @@
     "cash_machine": "Bankautomat",
     "category": "Kategorie",
     "cent_coins": "Cent-Münzen",
+    "choice_activity": "- Bitte wählen Sie eine Aktivität: ",
     "choice_category": "- Bitte wählen Sie eine Kategorie: ",
     "choice_day": "- Bitte wählen Sie einen Tag: ",
     "choice_floor": "- Bitte wählen Sie eine Etage: ",
@@ -129,6 +130,7 @@
     "total_net_price": "Gesamtnettopreis",
     "total_quantity": "Gesamtanzahl",
     "tuesday": "Dienstag",
+    "Unfortunately, this course is already full.": "Leider ist dieser Kurs schon voll.",
     "Unfortunately, your profile does not meet our expectations.": "Leider entspricht Ihr Profil nicht unseren Erwartungen.",
     "value_between": "Die Antwort muss zwischen {} und {} liegen. ",
     "value_clamped_down": "'{}' was greater than {} and was clamped.",
@@ -137,6 +139,9 @@
     "wednesday": "Mittwoch",
     "wine_shop": "Weingeschäft",
     "winter": "Winter",
+    "Would you like to choose a different course?": "Möchten Sie einen anderen Kurs wählen {}? ",
+    "Would you like to choose another course?": "Möchten Sie einen weiteren Kurs wählen {}? ",
     "Would you like to order an additional wine?": "Möchten Sie einen zusätzlichen Wein bestellen {}? ",
+    "Would you like to take this course?": "Möchten Sie an diesen Kurs teilnehmen {}? ",
     "yes": "Ja"
 }
