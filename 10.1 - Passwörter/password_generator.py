@@ -59,6 +59,6 @@ def append_to_password(character_list, count):
         password.append(random.choice(character_list))
         
 def display_password():
-    print("Passwort:", "".join(password))
+    print("Passwort: {}".format("".join(password)))
 
 main()
